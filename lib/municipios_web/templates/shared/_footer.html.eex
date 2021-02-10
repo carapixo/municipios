@@ -1,0 +1,3 @@
+<div class="flex justify-center">
+  Todos os direitos reservados <%= Date.utc_today.year %> &copy;
+</div>

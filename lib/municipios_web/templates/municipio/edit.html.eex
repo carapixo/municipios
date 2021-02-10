@@ -1,0 +1,34 @@
+<%= f = form_for @changeset, Routes.municipio_path(@conn, :update, @municipio) %>
+  <div class="p-5">
+    <%= MunicipiosWeb.SharedView.render_alerts(get_flash(@conn)) %>
+    <div class="mt-5">
+      <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="px-4 py-5 bg-white sm:p-6">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label for="municipio" class="block text-gray-700">Município</label>
+              <%= text_input f, :nome, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md" %>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="estado" class="block text-gray-700">Estado</label>
+              <%= select f, :estado_id, Enum.map(@estados, &{&1.nome, &1.id}), class: "form-select mt-1 block w-full border-gray-300 rounded", prompt: "Selecione..." %>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="prefeito" class="block text-gray-700">Prefeito</label>
+              <%= text_input f, :prefeito, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md" %>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="populacao" class="block text-gray-700">População</label>
+              <%= text_input f, :populacao, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md" %>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 py-4 bg-gray-50 text-right">
+          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

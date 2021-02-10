@@ -1,0 +1,72 @@
+<div class="flex items-center justify-center">
+    <span class="text-gray-700 font-semibold px-4 py-2 m-2">
+      Municípios cadastrados: <%= length(@municipios) %>
+    </span>
+</div>
+<div class="flex items-center justify-center">
+  <%= link to: Routes.municipio_path(@conn, :new) do %>
+    <button type="button" class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline">
+      Cadastrar Município
+    </button>
+  <% end %>
+</div>
+
+<%= MunicipiosWeb.SharedView.render_alerts(get_flash(@conn)) %>
+
+<div class="flex items-center justify-center py-5">
+  <div class="text-base px-4 py-2 align-middle inline-block min-w-full">
+    <div class="shadow overflow-hidden border-b border-gray-200 rounded">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Estado
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Municipio
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Prefeito
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              População
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Ações
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <%= for municipio <- @municipios do %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= municipio.estado.sigla %> </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= municipio.nome %> </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= municipio.prefeito %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= municipio.populacao %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center">
+                <%= link to: Routes.municipio_path(@conn, :edit, municipio) do %>
+                  <span class="px-2 inline-flex leading-5 font-semibold rounded-md border-indigo-500 bg-indigo-500 text-white">
+                    Editar
+                  </span>
+                <% end %>
+                <%= link to: Routes.municipio_path(@conn, :delete, municipio), method: :delete, data: [confirm: "Tem certeza?"] do %>
+                  <span class="px-2 inline-flex leading-5 font-semibold rounded-md border-red-500 bg-red-500 text-white">
+                    Excluir
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

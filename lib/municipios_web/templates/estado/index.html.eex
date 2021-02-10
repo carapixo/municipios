@@ -1,0 +1,65 @@
+<div class="flex items-center justify-center">
+  <%= link to: Routes.estado_path(@conn, :new) do %>
+    <button type="button" class="border border-gray-700 bg-gray-700 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline">
+      Cadastrar Estado
+    </button>
+  <% end %>
+</div>
+
+<%= MunicipiosWeb.SharedView.render_alerts(get_flash(@conn)) %>
+
+<div class="flex items-center justify-center py-5">
+  <div class="text-base px-4 py-2 align-middle inline-block min-w-full">
+    <div class="shadow overflow-hidden border-b border-gray-200 rounded">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Nome
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Sigla
+            </th>
+            <th scope="col" class="px-6 py-3 text-center font-medium text-gray-900 uppercase tracking-wider">
+              Ações
+            </th>
+            <th scope="col" class="relative px-6 py-3">
+              <span class="sr-only">Ver Municípios</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <%= for estado <- @estados do %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= estado.nome %> </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-center text-gray-800"><%= estado.sigla %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center">
+                <%= link to: Routes.estado_path(@conn, :edit, estado) do %>
+                  <span class="px-2 inline-flex leading-5 font-semibold rounded-md border-indigo-500 bg-indigo-500 text-white">
+                    Editar
+                  </span>
+                <% end %>
+                <%= link to: Routes.estado_path(@conn, :delete, estado), method: :delete, data: [confirm: "Tem certeza?"] do %>
+                  <span class="px-2 inline-flex leading-5 font-semibold rounded-md border-red-500 bg-red-500 text-white">
+                    Excluir
+                  </span>
+                <% end %>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-center">
+                <%= link to: Routes.estado_path(@conn, :show, estado) do %>
+                  <span class="px-2 inline-flex leading-5 font-semibold rounded-md border-red-500 bg-green-500 text-white">
+                    Ver Municípios
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
