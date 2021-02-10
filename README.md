@@ -1,10 +1,6 @@
-# Municipios
+# Municípios
 
 To start your Phoenix server:
-
-  ** Requirements
-  * MySQL DB
-  * Tailwind CSS
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
