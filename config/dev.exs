@@ -4,7 +4,7 @@ use Mix.Config
 config :municipios, Municipios.Repo,
   # adapter: Ecto.Adapters.MySQL,
   username: "root",
-  password: "",
+  password: "password",
   database: "municipios_dev",
   hostname: "localhost"
 
