@@ -7,11 +7,11 @@
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
               <label for="first_name" class="block text-gray-700">Estado</label>
-              <%= text_input f, :nome, class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md" %>
+              <%= text_input f, :nome, class: "mt-1 border border-gray-300 bg-white text-gray-900 appearance-none block w-full rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none" %>
             </div>
             <div class="col-span-6 sm:col-span-3">
               <label for="last_name" class="block text-gray-700">Sigla</label>
-              <%= text_input f, :sigla, maxlength: "2", class: "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-300 rounded-md" %>
+              <%= text_input f, :sigla, maxlength: "2", class: "mt-1 border border-gray-300 bg-white text-gray-900 appearance-none block w-full rounded-md py-3 px-4 focus:border-blue-500 focus:outline-none" %>
             </div>
           </div>
         </div>
