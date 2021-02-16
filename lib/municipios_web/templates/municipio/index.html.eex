@@ -40,10 +40,10 @@
           <%= for municipio <- @municipios do %>
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-center text-gray-800"><%= municipio.estado.sigla %> </div>
+                <div class="text-center text-gray-800"><%= municipio.estado.sigla %></div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-center text-gray-800"><%= municipio.nome %> </div>
+                <div class="text-center text-gray-800"><%= municipio.nome %></div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-center text-gray-800"><%= municipio.prefeito %></div>
