@@ -13,3 +13,20 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
+
+// listen on document.body, so it's executed before the default of
+// phoenix_html, which is listening on the window object
+document.body.addEventListener('phoenix.link.click', function (e) {
+  // Prevent default implementation
+  e.stopPropagation();
+
+  // Introduce alternative implementation
+  var message = e.target.getAttribute("data-confirm");
+  if (!message) { return true; }
+  vex.dialog.confirm({
+    message: message,
+    callback: function (value) {
+      if (value == false) { e.preventDefault(); }
+    }
+  })
+}, false);
